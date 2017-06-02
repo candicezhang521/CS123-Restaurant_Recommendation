@@ -1,4 +1,4 @@
-# Yelp Recommendation Project
+# Restaurant Recommendation Project
 
 UChicago | CMSC 12300/CAPP 30123 | Spring 2017
 
@@ -6,8 +6,6 @@ UChicago | CMSC 12300/CAPP 30123 | Spring 2017
 This repository contains the final course project for CMSC 12300/CAPP 30123.
 
 ## Directory:
-
-<code>Proposal</code>: 
 
 <code>Data</code>: 
 
