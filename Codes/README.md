@@ -1,19 +1,21 @@
 # Restaurant Recommendation Project | Logistic Flow
 
-This file aims to describe the logistic flow of this project, giving a general idea of how to use different files.
+Please patiently follow the steps below to make sure you successfully run all the scripts. Please free to contact Y-Cube for any suggestions.
 
-**1. Data Download**
+## 1. Data Download
 
 Please download raw dataset from [Yelp](https://www.yelp.com/dataset_challenge). The dataset is also available on the private [Google Drive]().
 
 A cleaned small subset of the dataset _test_data.csv_ including 500 users is available in the <code>Data</code> section as test dataset and you are welcome to download it and thus skip the Data Cleaning Step.
 
-**2. Data Cleaning**
+## 2. Data Cleaning
 
-(1) _json_to_csv.py_: This python script converts all the json files downloaded from Yelp to csv format files.
+(1) _json_to_csv.py_:\\
+
+This python script converts all the json files downloaded from Yelp to csv format files.
 	Input: yelp_academic_reviews.json
 	Output: yelp_academic_reviews.csv
-	```
+	```sh
 	python3 json_to_csv.py yelp_academic_reviews.json
 	```
 
@@ -31,9 +33,10 @@ A cleaned small subset of the dataset _test_data.csv_ including 500 users is ava
 	python3
 	```
 
-**3. Data Storage**
+##3. Data Storage
 
-_database_construction.sql_: This sql srcipt helps store the dataset in a sqlite3 database. It generates two sqlite3 tables and two csv files.
+_database_construction.sql_:
+This sql srcipt helps store the dataset in a sqlite3 database. It generates two sqlite3 tables and two csv files.
 	Input: filtered_reviews.csv / test_data.csv 
 	Output: yelp_test.db with table yelp_reviews and table user
 			user_reviews.csv
