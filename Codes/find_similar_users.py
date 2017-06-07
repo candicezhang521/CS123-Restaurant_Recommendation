@@ -18,19 +18,23 @@ class MRMostSimilarUser(MRJob):
     def mapper_init(self):
         self.db = sqlite3.connect(self.options.database)
         self.c = self.db.cursor()
+
     def mapper(self, _, line):
         id1,id2 = line.split(',')
         
         command1 = "SELECT vector FROM user_vector WHERE user_id = ?"
         command2 = "SELECT vector FROM user_vector WHERE user_id = ?"
-        self.c.execute(command1,[id1])
-        result1 = self.c.fetchall()
-        result1 = ast.literal_eval(result1[0][0])
+        try:
+            self.c.execute(command1,[id1])
+            result1 = self.c.fetchall()
+            result1 = ast.literal_eval(result1[0][0])
 
-        self.c.execute(command2,[id2])
-        result2 = self.c.fetchall()
-        result2 = ast.literal_eval(result2[0][0])
-        yield id1, [id2, result1[0], result2[0]]
+            self.c.execute(command2,[id2])
+            result2 = self.c.fetchall()
+            result2 = ast.literal_eval(result2[0][0])
+            yield id1, [id2, result1[0], result2[0]]
+        except:
+            pass
 
     def combiner(self, the_id, value_list):
         for vector in value_list:
