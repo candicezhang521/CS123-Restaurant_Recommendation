@@ -7,6 +7,7 @@ CREATE TABLE yelp_reviews
 
 .separator ","
 .import test_data.csv yelp_reviews
+--.import fresh_yelp_reviews.csv yelp_reviews
 DELETE FROM yelp_reviews WHERE review = 'text';
 
 
@@ -18,6 +19,16 @@ SELECT DISTINCT user_id, GROUP_CONCAT(review) AS review
 FROM yelp_reviews
 GROUP BY user_id
 ORDER BY user_id;
+
+
+-- Concat all reviews about a restaurant
+.mode csv
+.separator ","
+.output restaurant_reviews.csv
+SELECT business_id, GROUP_CONCAT(review) AS review
+FROM yelp_reviews
+GROUP BY business_id
+ORDER BY business_id;
 
 
 -- Import the user_id to a table to increase the efficiency of cross join
@@ -37,4 +48,23 @@ FROM user a
 CROSS JOIN user b
 WHERE a.user_id != b.user_id
 ORDER BY a.user_id;
+
+
+-- Import the business information
+CREATE TABLE restaurant_info
+(num INT,
+ name TEXT,
+ address TEXT,
+ business_id TEXT,
+ postal_code TEXT,
+ state TEXT,
+ stars TEXT,
+ city TEXT,
+ categories TEXT);
+
+.separator ","
+.import cs123_restaurants.csv restaurant_info
+DELETE FROM restaurant_info WHERE name = 'name';
+
+
 
