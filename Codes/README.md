@@ -10,19 +10,21 @@ A cleaned small subset of the dataset _test_data.csv_ including 500 users is ava
 
 ## 2. Data Cleaning
 
-(1) _json_to_csv.py_:\\
+(1) _json_to_csv.py_:\
 
-This python script converts all the json files downloaded from Yelp to csv format files.
-	Input: yelp_academic_reviews.json
-	Output: yelp_academic_reviews.csv
+This python script converts all the json files downloaded from Yelp to csv format files.\
+	Input: yelp_academic_reviews.json\
+	Output: yelp_academic_reviews.csv\
 	```sh
 	python3 json_to_csv.py yelp_academic_reviews.json
 	```
 
-(2) _-.py_: This python script deals with filtering and standardization of the dataset. It cleans the dataset left with variables of interest, including text_reviews, user_id, business_id, and replaces all punctuations in text_reivews with space for further convenience.
-	Input: yelp_academic_reviews.csv
-	Output: filtered_reviews.csv
-	```
+(2) _-.py_:\
+
+This python script deals with filtering and standardization of the dataset. It cleans the dataset left with variables of interest, including text_reviews, user_id, business_id, and replaces all punctuations in text_reivews with space for further convenience.\
+	Input: yelp_academic_reviews.csv\
+	Output: filtered_reviews.csv\
+	```sh
 	python3 
 	```
 
